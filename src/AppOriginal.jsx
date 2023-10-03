@@ -7,15 +7,15 @@ const LOCAL_STORAGE_KEY = "TODOS"
 function App() {
     const [newTodoName, setNewTodoName] = useState("")
     const [todos, setTodos] = useState(() => {
-      const value = localStorage.getItem(LOCAL_STORAGE_KEY)
-      if(value == null) return []
+        const value = localStorage.getItem(LOCAL_STORAGE_KEY)
+        if (value == null) return []
 
-      return JSON.parse(value)
+        return JSON.parse(value)
     })
 
     useEffect(() => {
-      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
-    },[todos])
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
+    }, [todos])
 
     function addNewTodo() {
         if (newTodoName === "") return
